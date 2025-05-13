@@ -1,6 +1,6 @@
 /*
-  📌 Práctica 7. Divide y Vencerás
-  Búsqueda del Máximo en un Arreglo con Divide and Conquer
+  📌 Práctica 1. Event Loopp y Asincronicidad
+  Simulador de Pedidos en una Cafetería
 */
 
 /*
