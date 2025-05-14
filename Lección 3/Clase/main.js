@@ -45,6 +45,24 @@ const obtenerPokemonPorNombre = async (nombre) => {
     return data;
 }
 
+function buildPokemonCard({ id, name, sprites, abilities, types }) {
+    const liAbilities = abilities
+        .map(a => `<li>${a.ability.name}</li>`)
+        .join('');
+
+    const chips = types
+        .map(t => `<span class="types">${t.type.name}</span>`)
+        .join('');
+
+    return `
+      <div class="card show">
+        <img src="${sprites.front_default}" alt="${name}">
+        <h2>#${id} – ${name}</h2>
+        <ul>${liAbilities}</ul>
+        ${chips}
+      </div>`;
+}
+
 formNombre.addEventListener('submit', async (event) => {
     event.preventDefault()
     const nombre = event.target.nombrePokemon;
@@ -53,16 +71,18 @@ formNombre.addEventListener('submit', async (event) => {
 
     console.log(pokemonData)
 
-    salida.innerHTML = `
-    <div class="card show">
-        <img src=${pokemonData.sprites.front_default} alt="${pokemonData.name}">
-        <h2>${pokemonData.name}</h2>
-        <ul>
-            <li>${pokemonData.abilities[0].ability.name}</li>
-            <li>${pokemonData.abilities[1].ability.name}</li>
-        </ul>
-        <div class="types"> ${pokemonData.types[0].type.name}</div>
-        <div class="types"> ${pokemonData.types[1].type.name}</div>
-    </div>
-    `
+    salida.innerHTML = buildPokemonCard(pokemonData)
 })
+
+/* Código traido de POSTMAN */
+
+/* 
+const requestOptions = {
+    method: "GET",
+    redirect: "follow"
+};
+
+fetch("https://pokeapi.co/api/v2/pokemon/pikachu/", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error)); */

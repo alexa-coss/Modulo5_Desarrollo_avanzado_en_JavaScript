@@ -10,12 +10,18 @@
 </head>
 
 <body>
-    <h1>PokéFinder</h1>
-    <form id="searchForm">
-        <input type="text" id="query" name="nombrePokemon" placeholder="Nombre o ID de Pokémon" />
-        <button type="submit">Buscar</button>
-    </form>
-    <div id="output"></div>
+    <main class="container">
+        <h1>PokéFinder</h1>
+
+        <!-- Formulario: coincide con tu JS (id y name) -->
+        <form id="searchForm" autocomplete="off">
+            <input type="text" name="nombrePokemon" placeholder="Escribe nombre o ID…" required />
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Salida dinámica -->
+        <section id="output"></section>
+    </main>
 </body>
 
 </html>
