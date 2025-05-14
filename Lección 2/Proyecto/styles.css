@@ -105,10 +105,21 @@ ul#lista-compras li .categoria {
     margin-left: 1rem; /* Esto agrega la sangría */
 }
 
-#opciones h5 {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--hooverCopy-color);
+#Biblio {
+    display: flex;
+    justify-content: center;
+}
+
+#consultar {
+    width: 10rem;
+}
+
+#agregar {
+    width: 8.5rem;
+}
+
+#actualizar {
+    width: 13rem;
 }
 
 input[type="checkbox"] {
@@ -130,11 +141,17 @@ button {
     font-size: 1rem;
     display: block;
     margin: 0 auto; /* Lo centra horizontalmente */
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 button:hover {
     color: var(--secondary-color);
+}
+
+#Biblio {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 /* Estilo de la lista de productos */
@@ -164,18 +181,6 @@ ul#orderList li:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Estado: En Proceso */
-.en-proceso {
-    background-color: var(--buttonCopy-color);
-    color: black;
-}
-
-/* Estado: Completado */
-.completado {
-    background-color: var(--button-color);
-    color: white;
-}
-
 img {
     border: 0.2rem solid var(--secondary-color);
     margin-top: 0.5rem;
@@ -192,6 +197,37 @@ figcaption {
 h4 {
     color: var(--primary-color);
     display: inline-flex;
+}
+
+/* Estilo común para inputs y select */
+input, select {
+    background-color: var(--buttonCopy-color) !important;
+    border: 2px solid var(--hooverCopy-color);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    width: 9rem;
+}
+
+/* Cambiar color cuando están enfocados */
+input:focus, select:focus {
+    border-color: black; /* Color de borde más oscuro al enfocarse */
+    background-color: #e6f0ff !important;
+}
+
+/* Cambiar color para elementos deshabilitados */
+input:disabled, select:disabled {
+    background-color: #d3d3d3; /* Fondo gris claro para elementos deshabilitados */
+    color: #999999; /* Color gris para el texto */
+}
+
+#librosLista {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+#mensaje {
+    font-weight: bold;
 }
 
     /* Modal */

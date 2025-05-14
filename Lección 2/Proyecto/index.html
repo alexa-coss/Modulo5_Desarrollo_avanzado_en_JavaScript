@@ -22,35 +22,58 @@
     </ul>
 
     <main>
-        <section aria-labelledby="agregar_pedido">  <!-- Dar un poco más de contexto, sobre todo a personas con baja visión que usan ayudas. -->
-            <h3 id="Agregar_pedido">Cafetería: Simulador de Pedidos</h3>
-            <form id="agregar-form">
-                <h3 id="Buscar-max">Genera tu pedido y al agregarlo, automáticamente se te dará un número de orden.
-                    ¡No lo olvides!</h3>
-                    <h4 id="seleccionar">Selecciona tus productos:</h4>
-                    <section id="opciones">
-                        <label><input type="checkbox" name="producto" value="café"> Café</label>
-                        <label><input type="checkbox" name="producto" value="té"> Té</label>
-                        <label><input type="checkbox" name="producto" value="chocolate"> Chocolate</label>
-                        <label><input type="checkbox" name="producto" value="frappé"> Frappé</label>
-                        <label><input type="checkbox" name="producto" value="smoothie"> Smoothie</label>
-                        <h5>Especiales</h5>
-                        <label><input type="checkbox" name="producto" value="frappé especial"> Frappé de pinole con cacao</label>
-                        <label><input type="checkbox" name="producto" value="muffin cumpleañero"> Muffin cumpleañero</label>
-                    </section>
-                <button id="addOrderBtn" type="button">Agregar Pedido</button>
-            </form>
-        </section>
+        <section aria-labelledby="Gestión_Biblioteca_Libros">  <!-- Dar un poco más de contexto, sobre todo a personas con baja visión que usan ayudas. -->
+            <h3 id="Gestion">Gestión de Biblioteca de Libros</h3>
+            <form id="form">
+                <h3 id="Biblio">📚 Biblioteca 📚</h3>
 
-        <h2 id="Pedidos">Pedidos</h2>
-        <ul id="orderList"></ul>
+                    <h4 id="Consultar">Contamos con una variedad de libros disponibles.</h4>
+                    <button id="consultar">Consultar Libros</button>
+
+                    <h4 id="Agregar">Agrega un libro a nuestra colección.</h4>
+                    <section id="opciones">
+                        <input id="titulo" placeholder="Título" />
+                        <input id="autor" placeholder="Autor" />
+                        <input id="genero" placeholder="Género" />
+                        <select id="Estado">
+                            <option value="" disabled selected>Disponibilidad</option>
+                            <option value="true">Disponible</option>
+                            <option value="false">Prestado</option>
+                        </select>
+                    </section>
+                    <button id="agregar">Agregar Libro</button>
+
+                    <h4 id="Actualizar">¿Te llevas o devulves un libro? ¡Actuliza su estado!</h4>
+                    <section id="opciones">
+                        <input id="tituloActualizar" placeholder="Título del libro" />
+                        <select id="nuevoEstado">
+                            <option value="" disabled selected>Disponibilidad</option>
+                            <option value="true">Disponible</option>
+                            <option value="false">Prestado</option>
+                        </select>
+                    </section>
+                    <button id="actualizar">Actualizar disponibilidad</button>
+            </form>
+
+            <section id="librosLista" style="display: none;">
+                <h3>📚 Inventario de libros 📚</h3>
+                <ul id="libros"></ul>
+            </section>
+
+            <p id="mensaje"></p>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Simulador de Pedidos: Cafetería</p>
+        <p>&copy; 2025 Gestión de Biblioteca de Libros</p>
     </footer>
 
-    <h1>📚 Biblioteca</h1>
+    <section id="modal" class="modal-overlay" style="display: none;">
+        <section class="modal">
+            <p id="modal-text"></p>
+            <button onclick="cerrarModal()">Cerrar</button>  <!-- Cerrar la modal -->
+        </section>
+    </section>
     
 
     <h3>Pruebas</h3>
@@ -58,7 +81,7 @@
     <h4>Lo que podemos ver en Cafetería: Simulador de Pedidos</h4>
     <p>Vista incial al abrir la página:</p>
     <figure>
-        <img src="" alt="Vista preterminada">
+        <img src="https://i.postimg.cc/QNk95CwD/1-Vista-preterminada.jpg" alt="Vista preterminada">
         <figcaption>Vista preterminada.</figcaption>
     </figure>
     
@@ -67,15 +90,72 @@
     
     <p>Sin seleccionar ningún producto:</p>
     <figure>
-        <img src="" alt="Presionar botón">
+        <img src="https://i.postimg.cc/NFg0b8Sc/4-Dejar-campos-vac-os.jpg" alt="Presionar botón">
         <figcaption>Presionar el botón.</figcaption>
     </figure>
-    </figure>  
 
-    <p>Seleccionando producto(s) deseado(s):</p>
     <figure>
-        <img src="" alt="Presionar botón">
+        <img src="https://i.postimg.cc/cLjrZngR/5-Modal-de-llenar-todos-los-campos.jpg" alt="Modal llenar todos los campos">
+        <figcaption>Modal de llenar todos los campos.</figcaption>
+    </figure> 
+
+    <figure>
+        <img src="https://i.postimg.cc/fL7LxqHC/6-Cerrar-modal.jpg" alt="Cerrar modal">
+        <figcaption>Cerrar modal.</figcaption>
+    </figure> 
+
+    <p>Inventario:</p>
+    <figure>
+        <img src="https://i.postimg.cc/5NsX7Gfk/2-Presionar-bot-n-de-consultar.jpg" alt="Presionar botón">
         <figcaption>Presionar el botón.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/5tCjt2LZ/3-Inventario-de-libros.jpg" alt="Inventario de libros">
+        <figcaption>Inventario de libros.</figcaption>
+    </figure>
+
+    <p>Agregar libro:</p>
+    <figure>
+        <img src="https://i.postimg.cc/qBLqqY6M/7-Llenar-todos-los-campos-y-agregar.jpg" alt="LLenar todos los campos y agregar libro.">
+        <figcaption>LLenar todos los campos y agregar libro.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/Wb13kn0m/8-Libro-agregado.jpg" alt="Libro agregado">
+        <figcaption>Libro agregado.</figcaption>
+    </figure>
+
+    <p>Actualizar estado:</p>
+    <figure>
+        <img src="https://i.postimg.cc/4xKx8xLm/9-Llenar-todos-los-campos-y-actualizar.jpg" alt="LLenar todos los campos y actualizar estado">
+        <figcaption>LLenar todos los campos y actualizar estado.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/RZjV2xyG/10-Estado-actualizado.jpg" alt="Estado actualizado">
+        <figcaption>Estado actualizado.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/JnQryDnd/11-Llenar-todos-los-campos-y-actualizar-libro-no-existente.jpg" alt="LLenar todos los campos y actualizar estado de libro no existente">
+        <figcaption>LLenar todos los campos y actualizar estado de libro no existente.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/WzWsnB0G/12-Libro-no-encontrado.jpg" alt="Libro no encontrado">
+        <figcaption>Libro no encontrado.</figcaption>
+    </figure>
+
+    <p>Actulaizar inventario:</p>
+    <figure>
+        <img src="https://i.postimg.cc/QN0NhTvF/13-Presionar-bot-n-de-consultar-para-actualizar-inventario.jpg" alt="Presionar botón">
+        <figcaption>Presionar el botón.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/qMqJR7dj/14-Inventario-de-libros-actualizado.jpg" alt="Inventario de libros actualizado">
+        <figcaption>Inventario de libros actualizado.</figcaption>
     </figure>
 
     <script src="LibraryManagement.js"></script>
