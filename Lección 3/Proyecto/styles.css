@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Redressed&family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&family=Freckle+Face&family=Patrick+Hand+SC&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Redressed&family=Varela+Round&display=swap");
+
+
+/* Definición de variables de colores para mejor mantenimiento */
+:root {
+    --background-color: lightblue;
+    --primary-color: #2c4661;
+    --secondary-color: #98FF98;
+    --buttonCopy-color: #E6E6FA;
+    --hooverCopy-color: #8A66A1;
+    --Gris-tecnológico: #2E2E2E;
+    --Verde-portal-Button: #00FFB3;
+    --Azul-Rick: #4CFFFF;
+    --Amarillo-Morty: #FFF02A;
+    --Púrpura-galáctico: #9E00FF;
+    --Verde-tóxico-oscuro: #1B5E20;
+    --Rosa-Alienígena: #FF61C7;
+    --font-rick-title: 'Bangers', cursive;
+    --font-fun: 'Luckiest Guy', cursive;
+    --font-comic: 'Freckle Face', cursive;
+    --font-hand: 'Patrick Hand SC', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Playwrite GB S', sans-serif;
+    margin: 30px 40px 30px 40px; /* Arriba - Derecha - Abajo - Izquierda */
+    background-color: var(--background-color);
+}
+
+header {
+    text-align: center;
+/* Si el tamaño de la fuente no está explícitamente establecida,
+toma por defecto el tamaño de 16px, es decir 1rem = 16px */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50vw;
+}
+
+main {
+    max-width: 40rem;
+    margin: 2rem auto;
+}
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+form {
+    background-color: var(--Gris-tecnológico);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 0 1.5rem;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#opciones label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+ul#datos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1rem; /* espacio entre columnas y filas */
+    list-style-type: none;
+    padding: 0;
+    max-width: 40rem;
+}
+
+ul#datos li {
+    background: white;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--secondary-color);
+}
+
+#seleccionar {
+    color: var(--hooverCopy-color);
+}
+
+#R_M {
+    font-family: var(--font-rick-title);
+    font-size: 3rem;
+    color: var(--Azul-Rick);
+    text-shadow: 
+        -0.5px -0.5px 0 var(--Verde-portal-Button),
+         0.5px -0.5px 0 var(--Verde-portal-Button),
+        -0.5px  0.5px 0 var(--Verde-portal-Button),
+         0.5px  0.5px 0 var(--Verde-portal-Button); /* Simula el borde negro */
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+#Consultar {
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    color: var(--Púrpura-galáctico);
+    display: flex;
+    justify-content: center;
+}
+
+
+button {
+    font-family: var(--font-comic);
+    background-color: transparent;
+    color: var(--Verde-portal-Button);
+    padding: 0.75rem;
+    width: 10.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    margin: 0 auto; /* Lo centra horizontalmente */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover {
+    color: var(--Gris-tecnológico);
+    background-color: var(--Amarillo-Morty);
+    border: 2px solid var(--Amarillo-Morty);
+}
+
+#buttons {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo de la lista de productos */
+ul#orderList {
+    display: flex;
+    flex-direction: column; /* Disposición en columnas */
+    gap: 0.8rem; /* Espacio entre cada tarjeta de producto */
+    padding: 0;
+    margin: 0;
+}
+
+/* Tarjeta de producto */
+ul#orderList li {
+    padding: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row; /* Disposición en fila para cada tarjeta */
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+/* Al pasar sobre producto */
+ul#orderList li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border: 0.2rem solid var(--secondary-color);
+    margin-top: 0.5rem;
+    margin-bottom: -0.5rem;
+}
+
+figcaption {
+    font-size: 1rem; /* Tamaño de letra */
+    color: var(--hooverCopy-color);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+h4 {
+    color: var(--primary-color);
+    display: inline-flex;
+}
+
+#data-container:empty {
+    display: none;
+}
+
+#data-container {
+    position: relative;
+    background-color: var(--Gris-tecnológico);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+#data-container h2 {
+    width: 100%;
+    text-align: center;
+    color: var(--Amarillo-Morty);
+    font-family: var(--font-fun);
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+#data-container h3 {
+    text-align: center;
+    background-color: var(--Rosa-Alienígena);
+    color: var(--Gris-tecnológico);
+    font-family: var(--font-hand);
+    font-size: 2rem;
+    border-radius: 12px;
+}
+
+#data-container p {
+    text-align: left;
+    color: var(--Azul-Rick);
+    font-family: var(--font-hand);
+    font-size: 1.2rem;
+}
+
+#data-container img {
+    border: 0.4rem solid var(--Verde-portal-Button);
+    margin-top: 0.5rem;
+    margin-bottom: -0.5rem;
+}
+
+.metodo-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--Púrpura-galáctico);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-family: var(--font-hand);
+  user-select: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
