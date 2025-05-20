@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Práctica 4</title>
+    <!-- Incluyendo axios para poderlo utilizar-->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Práctica 4. Introducción a Flexbox</h1>
+    </header>
+
+        <h2>Problema: Sistema de Reservas para un Restaurante.</h2>
+
+    <p>En esta página puedes reservar mesas para un restaurante.</p>
+
+    <ul id="datos">
+        <li>Realiza la reservación.</li>
+        <li>Confimación por correo.</li>
+    </ul>
+
+    <main>
+        <section aria-labelledby="Sistema_Reservas_Restaurante">  <!-- Dar un poco más de contexto, sobre todo a personas con baja visión que usan ayudas. -->
+            <h3 id="Sistema_reservas">Sistema de Reservas para Restaurante</h3>
+            <form id="form">
+                <h3 id="Restaurant">🍴 Restaurante 🍴</h3>
+
+                <h4 id="Agregar">Datos de reservación</h4>
+
+                <section id="Datos">
+                    <p id="Fecha">Fecha:</p>
+                    <input id="fecha" type="date" name="date" />
+
+                    <p id="Hora">Hora:</p>
+                    <input id="hora" type="time" name="time" min="2025-05-19T10:00" max="2025-05-19T22:00" />
+
+                    <p id="Mesas">Número de mesas:</p>
+                    <input id="mesas" type="number" name="number" min="1" max="10" placeholder="Mesas" />
+
+                    <p id="Nombre">Nombre:</p>
+                    <input id="nombre" type="text" name="name" placeholder="Nombre" />
+
+                    <p id="Email">Email:</p>
+                    <input id="email" type="email" name="email" placeholder="Email" />
+
+                    <p id="Mesa">Nombre de la reservación:</p>
+                    <input id="mesa" type="text" name="table" placeholder="Nombre de reservación" />
+                </section>
+
+                <button id="reservar" type="submit">Reservar</button>
+            </form>
+
+            <div id="mensaje"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sistema de Reservas para un Restaurante</p>
+    </footer>
+
+
+    <h3>Pruebas</h3>
+
+    <h4>Lo que podemos ver en "Sistema de Reservas para un Restaurante"</h4>
+    <p>Vista incial al abrir la página:</p>
+    <figure>
+        <img src="https://i.postimg.cc/43mfMLbq/1-Vista-preterminada.jpg" alt="Vista preterminada">
+        <figcaption>Vista preterminada.</figcaption>
+    </figure>
+
+    <h4>Resultados</h4>
+    
+    <p>Reservación exitosa:</p>
+    <figure>
+        <img src="https://i.postimg.cc/rm48yDH9/2-Ingresar-datos-y-presionar-bot-n.jpg" alt="Ingresar datos y presionar botón">
+        <figcaption>Ingresar datos y presionar el botón.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/1XZy89h1/3-Verificar-disponibilidad.jpg" alt="Verificando disponibilidad">
+        <figcaption>Verificando disponibilidad.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/7PgxpT0H/4-Disponibilidad.jpg" alt="Disponibilidad">
+        <figcaption>Disponibilidad.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/VvBmM3mr/5-Correo-enviado.jpg" alt="Correo enviado">
+        <figcaption>Correo enviado.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/SNkyqNfW/6-Confirmaci-n-de-reserva.jpg" alt="Confirmación reserva">
+        <figcaption>Confirmación de reserva.</figcaption>
+    </figure>
+
+    <p>Posibles fallos:</p>
+    <figure>
+        <img src="https://i.postimg.cc/QdMh94PC/Error-al-enviar-correo.jpg" alt="Error al enviar correo">
+        <figcaption>Error al enviar correo.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/YqRtSKdT/Mesas-insuficientes.jpg" alt="Mesas insuficientes">
+        <figcaption>Mesas insuficientes.</figcaption>
+    </figure>
+    
+    <script src="reservaRestaurante.js"></script>
+</body>
+</html>
