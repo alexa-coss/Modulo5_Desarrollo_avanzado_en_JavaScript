@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Mis archivos -->
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./main.js"></script>
+    
+    <title>Práctica 5</title>
+</head>
+
+<body class="bg-body-tertiary">
+    <header>
+        <h1>Práctica 5. Manejo de formularios</h1>
+    </header>
+
+        <h2>Problema: Formulario para Registro de Eventos.</h2>
+
+    <p>En esta página puedes registrarte para un evento, se solicitan datos obligatorios:</p>
+
+    <ul id="datos">
+        <li>Nombre</li>
+        <li>Correo</li>
+        <li>Teléfono</li>
+        <li>Intereses</li>
+        <li>Horario</li>
+        <li>Fecha</li>
+        <li>Hora</li>
+        <li>Documento</li>
+    </ul>
+
+    <p>De manera opcional puedes subir tu INE o documento identificación.</p>
+
+    <main class="container py-5">
+        <!-- Registro de usuario -->
+        <section class="mb-5"> <!-- Para dar estilo -->
+            <div class="card p-4">
+                <h2 class="mb-3 text-center"><i class="bi bi-person-circle me-2 "></i>Registro de Evento</h2>
+                <form id="registerForm" class="row gy-3 needs-validation">
+                    
+                    <div class="col-md-12">
+                        <label for="name" class="form-label">Nombre completo</label>
+                        <div class="input-group">
+                            <span class="input-group-text"> <!-- "input-group" podemos tener dos o más cosas (input e icono) -->
+                                <i class="bi bi-person"></i> <!-- span o div, no importa la etiqueta -->
+                            </span>
+                            <input type="text" id="name" name="name" autocomplete="name" class="form-control" minlength="2" required />
+                            <div class="invalid-feedback">Nombre requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" id="email" name="email" autocomplete="email" class="form-control" required />
+                            <div class="invalid-feedback">Correo inválido</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                            <input type="tel" id="phone" name="phone" autocomplete="phone" class="form-control" pattern="\d{10}" required /> 
+                            <div class="invalid-feedback">10 dígitos requeridos</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Intereses</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="intereses" id="interesTecnologia" value="tecnología" />
+                            <label class="form-check-label" for="interesTecnologia">Tecnología</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="intereses" id="interesNegocios" value="negocios" />
+                            <label class="form-check-label" for="interesNegocios">Negocios</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="intereses" id="interesArte" value="arte" />
+                            <label class="form-check-label" for="interesArte">Arte</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Horario preferido</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="horario" id="horarioManana" value="mañana" />
+                            <label class="form-check-label" for="horarioManana">Mañana</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="horario" id="horarioTarde" value="tarde" />
+                            <label class="form-check-label" for="horarioTarde">Tarde</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="horario" id="horarioNoche" value="noche" required />
+                            <label class="form-check-label" for="horarioNoche">Noche</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="fecha" class="form-label">Fecha del evento</label>
+                        <input type="date" id="date" name="date" class="form-control" required />
+                        <div class="invalid-feedback">Selecciona una fecha</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="hora" class="form-label">Hora preferida</label>
+                        <input type="time" id="time" name="time" class="form-control" required />
+                        <div class="invalid-feedback">Selecciona tu hora preferida</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="archivo" class="form-label">Documento de identificación (opcional)</label>
+                        <input type="file" id="archivo" name="archivo" class="form-control" />
+                    </div>
+
+                    <div class="col-6">
+                        <label class="form-label">Términos y condiciones</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terminos" name="terminos" required />
+                            <label class="form-check-label" for="terminos">
+                            Acepto los <a href="#" target="_blank">términos y condiciones</a>
+                            </label>
+                            <div class="invalid-feedback">Debes aceptar los términos y condiciones</div>
+                        </div>
+                    </div>
+
+                    <div class="col-2 mx-auto">
+                        <button class="btn btn-primary w-100"><i class="bi bi-person-plus"></i> Registrarse</button>
+                    </div>
+                </form>
+                <pre id="registerOutput" class="mt-4 p-3 bg-light border rounded"></pre>        
+                <footer>
+                    <p>&copy; 2025 Formulario para Registro de Eventos</p>
+                </footer>       
+            </div>
+        </section>        
+    </main>
+
+    <h3>Pruebas</h3>
+
+    <h4>Lo que podemos ver en "Formulario para Registro de Eventos"</h4>
+    <p>Vista incial al abrir la página:</p>
+    <figure>
+        <img src="https://i.postimg.cc/662x0dZ0/1-Vista-preterminada.jpg" alt="Vista preterminada">
+        <figcaption>Vista preterminada.</figcaption>
+    </figure>
+
+    <h4>Resultados</h4>
+    
+    <p>Registros exitosos:</p>
+    <figure>
+        <img src="https://i.postimg.cc/RCk5bNQz/2-Autocompletado.jpg" alt="Autocompletado">
+        <figcaption>Autocompletado.</figcaption>
+    </figure>
+
+    <p>Sin subir archivo de identificación opcional.</p>
+    <figure>
+        <img src="https://i.postimg.cc/26gJJKWx/9-Formulario-completo-sin-archivo.jpg" alt="Formulario completo sin archivo">
+        <figcaption>Formulario completo sin archivo.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/vT9jdtLw/10-Registro-exitoso-sin-archivo.jpg" alt="Registro exitoso sin archivo">
+        <figcaption>Registro exitoso sin archivo.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/v86C9GR2/11-Datos-sin-archivo.jpg" alt="Datos sin archivo">
+        <figcaption>Datos sin archivo.</figcaption>
+    </figure>
+
+    <p>Subiendo un archivo de identificación opcional.</p>
+    <figure>
+        <img src="https://i.postimg.cc/28RM7grk/12-Formulario-completo-con-archivo.jpg" alt="Formulario completo con archivo">
+        <figcaption>Formulario completo con archivo.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/7Y3csXZg/13-Registro-exitoso-con-archivo.jpg" alt="Registro exitoso con archivo">
+        <figcaption>Registro exitoso con archivo.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/Cxw2WDR9/14-Datos-con-archivo.jpg" alt="Datos con archivo">
+        <figcaption>Datos con archivo.</figcaption>
+    </figure>
+
+    <p>Posibles fallas:</p>
+
+    <p>En nombre, correo, télefono, fecha y hora.</p>
+    <figure>
+        <img src="https://i.postimg.cc/QdsLhwy4/3-Name.jpg" alt="Mensaje completar campo">
+        <figcaption>Mensaje de completar campo.</figcaption>
+    </figure>
+
+    <p>Específicos.</p>
+    <figure>
+        <img src="https://i.postimg.cc/sgJkXKFV/4-Email.jpg" alt="Escribir bien correo">
+        <figcaption>Escribir bien el correo.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/pXKbNRq5/5-Phone.jpg" alt="Escribir número de 10 dígitos">
+        <figcaption>Escribir un número de 10 dígitos.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/Ls6rZfRj/7-Horario.jpg" alt="Seleccionar un horario preferido">
+        <figcaption>Seleccionar un horario preferido.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/Kz1w021z/8-T-rminos-y-condiciones.jpg" alt="Aceptar términos y condiciones">
+        <figcaption>Aceptar términos y condiciones.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/rpn7GmF3/6-Intereses.jpg" alt="Seleccionar al menos un intereses">
+        <figcaption>Seleccionar al menos un intereses.</figcaption>
+    </figure>
+
+</body>
+
+</html>
