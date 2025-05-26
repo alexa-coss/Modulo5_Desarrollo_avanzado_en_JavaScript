@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Mis estilos CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Punto de entrada ESM (Ecmascript Modules) -->
+    <script defer type="module" src="./src/app.js"></script>
+    
+    <title>Práctica 6</title>
+</head>
+
+<body class="bg-body-tertiary">
+    <header>
+        <h1>Práctica 6. Validación de formularios con Zod</h1>
+    </header>
+
+        <h2>Problema: Validación de un Formulario de Registro con Zod.</h2>
+
+    <p>En esta página puedes registrar tus datos de usuario:</p>
+
+    <ul id="datos">
+        <li>Nombre</li>
+        <li>Correo</li>
+        <li>Contraseña</li>
+    </ul>
+
+    <p>También puedes agregar tu número de télefono si lo deseas.</p>
+
+    <main class="container py-5">
+        <!-- Registro de usuario -->
+        <section class="mb-5"> <!-- Para dar estilo -->
+            <div class="card p-4">
+                <h2 class="mb-3 text-center"><i class="bi bi-person-circle me-2 "></i>Registro de Usuario</h2>
+                <form id="registerForm" novalidate class="row gy-3 needs-validation"> <!-- Validaciones con libreria Zod (schema) -->
+                    <div class="col-md-12">
+                        <label for="name" class="form-label">Nombre</label>
+                        <div class="input-group">
+                            <span class="input-group-text"> <!-- "input-group" podemos tener dos o más cosas (input e icono) -->
+                                <i class="bi bi-person"></i> <!-- span o div, no importa la etiqueta -->
+                            </span>
+                            <input type="text" id="name" name="name" autocomplete="name" class="form-control" minlength="2" required />
+                            <div class="invalid-feedback">Nombre requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Correo</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" id="email" name="email" autocomplete="email" class="form-control" required />
+                            <div class="invalid-feedback">Correo inválido</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-key"></i></span>
+                            <input type="password" id="password" name="password" class="form-control" minlength="6"
+                                maxlength="20" required /> <!-- Dinámico: Button en JS para cambiar a "type="text"" para hacerla visible -->
+                            <div class="invalid-feedback">Mínimo 6 caracteres</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="telefono" class="form-label">Teléfono (10 dígitos)</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                            <input type="tel" id="phone" name="phone" autocomplete="phone" class="form-control" pattern="\d{10}" required /> 
+                            <div class="invalid-feedback">10 dígitos requeridos</div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Términos y condiciones</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terms" name="terms" required />
+                            <div class="invalid-feedback" id="checks">Debes aceptar los términos y condiciones</div>
+                            <label class="form-check-label" for="terms" id="check">
+                            Acepto los <a href="#" target="_blank">términos y condiciones</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-2 mx-auto">
+                        <button class="btn btn-primary w-100"><i class="bi bi-person-plus"></i> Registrarse</button>
+                    </div>
+                </form>
+                <pre id="registerOutput" class="mt-4 p-3 bg-light border rounded"></pre>        
+                <footer>
+                    <p>&copy; 2025 Formulario de Registro de Usuario</p>
+                </footer>       
+            </div>
+        </section>        
+    </main>
+
+    <h3>Pruebas</h3>
+
+    <h4>Lo que podemos ver en "Formulario para Registro de Eventos"</h4>
+    <p>Vista incial al abrir la página:</p>
+    <figure>
+        <img src="https://i.postimg.cc/PrRmn5Yb/1-Vista-preterminada.jpg" alt="Vista preterminada">
+        <figcaption>Vista preterminada.</figcaption>
+    </figure>
+
+    <h4>Resultados</h4>
+    
+    <p>Registros exitosos:</p>
+    <figure>
+        <img src="https://i.postimg.cc/SKpdHKbT/7-Autocompletado.jpg" alt="Autocompletado">
+        <figcaption>Autocompletado.</figcaption>
+    </figure>
+
+    <p>Sin subir archivo de identificación opcional.</p>
+    <figure>
+        <img src="https://i.postimg.cc/ZnqyXGqD/7-Presionar-button-con-formulario-completo.jpg" alt="Formulario completo sin télefono">
+        <figcaption>Formulario completo sin télefono.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/dt18fykt/8-Registro-completo-exitoso.jpg" alt="Registro exitoso sin télefono">
+        <figcaption>Registro exitoso sin télefono.</figcaption>
+    </figure>
+
+    <p>Posibles fallas:</p>
+
+    <figure>
+        <img src="https://i.postimg.cc/QdKc8ZJ2/2-Presionar-button-con-formulario-vac-o.jpg" alt="Formulario incompleto">
+        <figcaption>Formulario incompleto.</figcaption>
+    </figure>
+    
+    <figure>
+        <img src="https://i.postimg.cc/vmRfD2Pc/3-Validaciones-en-campos-obligatorios.jpg" alt="Mensaje completar campos">
+        <figcaption>Mensaje de completar campos.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/6QdRZVSz/4-Validaci-n-en-campo-opcional.jpg" alt="Validación campo opcional">
+        <figcaption>Validación en campo "Télefono" (opcional).</figcaption>
+    </figure>
+
+    <p>Corregir errores:</p>
+    <figure>
+        <img src="https://i.postimg.cc/4dscQ7RG/5-Presionar-button-con-formulario-corregido.jpg" alt="Formulario corregido con télefono">
+        <figcaption>Formulario corregido con télefono.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://i.postimg.cc/wv2mfq9m/6-Registro-corregido-exitoso.jpg" alt="Registro exitoso con télefono">
+        <figcaption>Registro exitoso con télefono.</figcaption>
+    </figure>
+
+</body>
+
+</html>
